@@ -1,4 +1,4 @@
-package ru.muradyan.task1.managers;
+package ru.muradyan.managers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

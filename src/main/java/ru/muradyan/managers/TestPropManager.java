@@ -1,6 +1,4 @@
-package ru.muradyan.task1.managers;
-
-import org.openqa.selenium.WebDriver;
+package ru.muradyan.managers;
 
 import java.io.File;
 import java.io.FileInputStream;

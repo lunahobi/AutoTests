@@ -1,9 +1,9 @@
 package ru.muradyan.tests.task1.base;
 import org.junit.*;
 
-import ru.muradyan.task1.managers.DriverManager;
-import ru.muradyan.task1.managers.InitManager;
-import ru.muradyan.task1.managers.TestPropManager;
+import ru.muradyan.managers.DriverManager;
+import ru.muradyan.managers.InitManager;
+import ru.muradyan.managers.TestPropManager;
 
 public class BaseTest {
     private final DriverManager driverManager = DriverManager.getInstance();

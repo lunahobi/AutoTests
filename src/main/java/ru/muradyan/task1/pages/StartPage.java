@@ -32,6 +32,7 @@ public class StartPage extends BasePage{
         waitUntilElementToBeVisible(numberOfRemainingItems);
         String text = String.format("%s of %s remaining", remaing, total);
         Assert.assertEquals("Текст " + text + " не присутствует на странице", text, numberOfRemainingItems.getText().trim());
+        logger.info("Проверка присутствия текста '5 of 5 remaining'");
         return this;
     }
 
@@ -41,6 +42,7 @@ public class StartPage extends BasePage{
             WebElement checkbox = item.findElement(By.xpath("./..//span"));
             if (checkbox.getText().trim().equals(nameOfItem)) {
                 Assert.assertEquals("Элемент списка " + nameOfItem + " зачеркнут","done-false", checkbox.getAttribute("class"));
+                logger.info("Проверка того, что элемент списка '" + nameOfItem + "' не зачеркнут");
                 return this;
             }
         }
@@ -56,8 +58,9 @@ public class StartPage extends BasePage{
                 checkbox.click();
                 remaing -= 1;
                 String text = String.format("%s of %s remaining", remaing, total);
-                Assert.assertEquals("Элемент списка " + nameOfItem + " не зачеркнут","dne-true", item.getAttribute("class"));
+                Assert.assertEquals("Элемент списка " + nameOfItem + " не зачеркнут","done-true", item.getAttribute("class"));
                 Assert.assertEquals("Число оставшихся элементов не уменьшилось на 1", text, numberOfRemainingItems.getText());
+                logger.info("Поставить галочку у элемента списка '" + nameOfItem + "'");
                 return this;
             }
         }
@@ -80,6 +83,7 @@ public class StartPage extends BasePage{
         }
         String text = String.format("%s of %s remaining", remaing, total);
         Assert.assertEquals("Число оставшихся и общее число элементов не увеличилось на 1", text, numberOfRemainingItems.getText());
+        logger.info("Добавление нового элемента списка '" + nameOfItem + "'");
         return this;
     }
 
