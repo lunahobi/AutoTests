@@ -1,4 +1,4 @@
-package ru.muradyan.tests.task1.base;
+package ru.muradyan.task1.tests.base;
 import org.junit.*;
 
 import ru.muradyan.managers.DriverManager;
@@ -7,7 +7,6 @@ import ru.muradyan.managers.TestPropManager;
 
 public class BaseTest {
     private final DriverManager driverManager = DriverManager.getInstance();
-    private final TestPropManager propManager = TestPropManager.getInstance();
 
     @BeforeClass
     public static void beforeClass(){

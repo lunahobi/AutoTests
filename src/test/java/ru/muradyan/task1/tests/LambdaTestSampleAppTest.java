@@ -1,9 +1,9 @@
-package ru.muradyan.tests.task1;
+package ru.muradyan.task1.tests;
 
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import ru.muradyan.task1.pages.StartPage;
-import ru.muradyan.tests.task1.base.BaseTest;
+import ru.muradyan.task1.tests.base.BaseTest;
 
 public class LambdaTestSampleAppTest extends BaseTest {
 
