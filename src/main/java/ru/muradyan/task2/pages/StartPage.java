@@ -12,11 +12,23 @@ import java.util.List;
 public class StartPage extends BasePage {
     private static final Logger logger = Logger.getLogger(StartPage.class);
 
+    @FindBy(xpath = "//h1")
+    private WebElement title;
+
     @FindBy(xpath = "//button[@class='hamburger']")
     private WebElement hamburgerMenu;
 
     @FindBy(xpath = "//a[contains(@class, 'main-nav')]")
     private List<WebElement> menuItemList;
+
+    @Step("Проверка открытия главной страницы")
+    public StartPage checkOpenPage(){
+        Assert.assertEquals("Заголовок отсутствует/не соответствует требуемому",
+                "Московский Политех",
+                title.getText());
+        logger.info("Проверка открытия страницы");
+        return this;
+    }
 
     @Step("Нажать на гамбургер-меню, чтобы открыть меню")
     public StartPage clickOnHamburgerMenu() {

@@ -11,7 +11,8 @@ public class MospolytechTest extends BaseTest {
     @DisplayName("Тестирование страницы расписания на сайте Мосполитеха")
     public void test(){
         StartPage startPage  = new StartPage();
-        startPage.clickOnHamburgerMenu()
+        startPage.checkOpenPage().
+                clickOnHamburgerMenu()
                 .mouseOnMenuItem("Обучающимся")
                 .clickOnMenuItem("Расписания")
                 .checkOpenPage()
