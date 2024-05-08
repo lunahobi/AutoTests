@@ -44,7 +44,7 @@ public class StartPage extends BasePage{
     @Step("Навести на категорию '{category}'")
     public StartPage moveToCategory(String category) {
         for (WebElement element: categoryList) {
-            if (element.findElement(By.xpath("./span")).getText().equals(category)) {
+            if (waitUntilElementToBeVisible(element.findElement(By.xpath("./span"))).getText().equals(category)) {
                 moveToElement(element);
                 logger.info("Навести на категорию '" + category + "'");
                 return this;
@@ -57,7 +57,7 @@ public class StartPage extends BasePage{
     @Step("Нажать на пункт меню '{menuItem}'")
     public LaptopPage clickOnMenuItem(String menuItem) {
         for (WebElement item: menuItemList) {
-            if (item.getText().equals(menuItem)){
+            if (waitUntilElementToBeVisible(item).getText().equals(menuItem)){
                 moveToElement(item);
                 item.click();
                 logger.info("Переход на страницу с ноутбуками");
