@@ -1,4 +1,4 @@
-package utils;
+package ru.muradyan.utils;
 
 import io.qameta.allure.junit4.AllureJunit4;
 import org.junit.runner.notification.Failure;

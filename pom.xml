@@ -62,12 +62,6 @@
             <version>1.2.17</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>${slf4j-simple.version}</version>
-        </dependency>
-
     </dependencies>
 
     <build>
@@ -101,7 +95,7 @@
                     <properties>
                         <property>
                             <name>listener</name>
-                            <value>utils.MyAllureListener</value>
+                            <value>ru.muradyan.utils.MyAllureListener</value>
                         </property>
                     </properties>
                 </configuration>

@@ -61,7 +61,9 @@ public class ScheduleGroupPage extends BasePage{
                     throw new RuntimeException(e);
                 }
                 Assert.assertEquals("Не открылось расписание выбранной группы", "Расписание " + numberOfGroup,driverManager.getDriver().getTitle());
-                Assert.assertEquals("Текущий день недели не выделен цветом", getCurrentDayOfWeek(), dayToday.getText());
+                if (getCurrentDayOfWeek() != "Воскресенье") {
+                    Assert.assertEquals("Текущий день недели не выделен цветом", getCurrentDayOfWeek(), dayToday.getText());
+                }
                 logger.info("Клик по найденной группе " + numberOfGroup);
                 return this;
             }

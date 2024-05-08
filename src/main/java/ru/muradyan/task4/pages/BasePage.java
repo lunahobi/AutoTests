@@ -1,5 +1,6 @@
-package ru.muradyan.task3.pages;
+package ru.muradyan.task4.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -65,19 +66,19 @@ public class BasePage {
 
         switch (dayOfWeek) {
             case MONDAY:
-                return "Понедельник";
+                return "Пн";
             case TUESDAY:
-                return "Вторник";
+                return "Вт";
             case WEDNESDAY:
-                return "Среда";
+                return "Ср";
             case THURSDAY:
-                return "Четверг";
+                return "Чт";
             case FRIDAY:
-                return "Пятница";
+                return "Пт";
             case SATURDAY:
-                return "Суббота";
+                return "Сб";
             case SUNDAY:
-                return "Воскресенье";
+                return "Вс";
             default:
                 return "Неизвестный день недели";
         }
@@ -90,6 +91,15 @@ public class BasePage {
             }
         }
         return "0";
+    }
+
+    protected void checkOpenPage(String pageName, WebElement title) {
+        System.out.println("checkOpenPage() called");
+        waitUntilElementToBeVisible(title);
+        Assert.assertEquals("Заголовок отсутствует/не соответствует требуемому",
+                pageName,
+                title.getText());
+        System.out.println("checkOpenPage() finished");
     }
 }
 

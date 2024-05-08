@@ -3,7 +3,7 @@ package ru.muradyan.managers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import utils.PropConst;
+import ru.muradyan.utils.PropConst;
 
 public class DriverManager {
 
@@ -31,6 +31,7 @@ public class DriverManager {
 
     public void quitDriver() {
         if (driver != null) {
+            driver.close();
             driver.quit();
             driver = null;
         }

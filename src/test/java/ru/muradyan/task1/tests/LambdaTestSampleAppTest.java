@@ -25,4 +25,6 @@ public class LambdaTestSampleAppTest extends BaseTest {
                 .addNewItem("Sixth Item")
                 .checkboxByName("Sixth Item");
     }
+
+
 }

@@ -19,7 +19,7 @@ public class LaptopPage extends BasePage{
     @FindBy(xpath = "//div[@data-auto-themename='listDetailed']")
     private List<WebElement> productList;
 
-    @FindBy(xpath = "//div[@data-filter-value-id='resale_resale']")
+    @FindBy(xpath = "//div[@data-filter-value-id='resale_resale']//label")
     private WebElement resaleFilter;
 
     @Step("Проверка открытия страницы 'Ноутбуки'")
@@ -38,7 +38,7 @@ public class LaptopPage extends BasePage{
             moveToElement(product);
 
             String title = product.findElement(By.xpath(".//h3")).getText();
-            String price = product.findElement(By.xpath(".//span[@class='_24Evj']")).getText();
+            String price = product.findElement(By.xpath(".//span[@class='_1ArMm']")).getText();
             List<WebElement> discountElements = product.findElements(By.xpath(".//span[@class='_2Vt2k']"));
             boolean isDiscount = !discountElements.isEmpty();
 
@@ -52,10 +52,11 @@ public class LaptopPage extends BasePage{
         moveToElement(resaleFilter);
         resaleFilter.click();
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+        moveToElement(title);
         for (int i = 0; i < 10 && i < productList.size(); i++) {
             WebElement product = productList.get(i);
             moveToElement(product);
