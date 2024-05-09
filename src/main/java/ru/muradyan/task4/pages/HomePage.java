@@ -30,7 +30,6 @@ public class HomePage extends BasePage{
 
     @Step("Проверка открытия главной страницы")
     public HomePage checkOpenPage(){
-        System.out.println("checkOpenPage() Home Page called");
         checkOpenPage("Главная", title);
         logger.info("Проверка открытия страницы");
         try {
@@ -38,7 +37,6 @@ public class HomePage extends BasePage{
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("checkOpenPage() Home Page finished");
         return this;
     }
 

@@ -45,8 +45,6 @@ public class StartPage extends BasePage {
 
         logInButton.click();
         logger.info("Авторизация под учетной записью студента");
-        System.out.println("logInStudent() method finished");
-        System.out.println("logInStudent() method finished");
         return pageManager.getHomePage();
     }
 

@@ -94,12 +94,10 @@ public class BasePage {
     }
 
     protected void checkOpenPage(String pageName, WebElement title) {
-        System.out.println("checkOpenPage() called");
         waitUntilElementToBeVisible(title);
         Assert.assertEquals("Заголовок отсутствует/не соответствует требуемому",
                 pageName,
                 title.getText());
-        System.out.println("checkOpenPage() finished");
     }
 }
 
