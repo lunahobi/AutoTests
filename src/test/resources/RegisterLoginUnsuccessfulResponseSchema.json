@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft-09/schema#",
+  "type": "object",
+  "properties": {
+    "error": {
+      "type": "string"
+    }
+  }
+}
