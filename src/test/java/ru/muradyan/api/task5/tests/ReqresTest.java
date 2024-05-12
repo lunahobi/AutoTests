@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.*;
 
-public class RegresTest {
+public class ReqresTest {
 
     @Test
     @DisplayName("Получить список пользователей со страницы 2")

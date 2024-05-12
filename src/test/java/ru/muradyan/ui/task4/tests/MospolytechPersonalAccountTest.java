@@ -56,8 +56,8 @@ public class MospolytechPersonalAccountTest extends BaseTest {
 //                .clickOnMenuItem("Расписание");
 //        SchedulePage schedulePage = new SchedulePage();
 //        schedulePage.checkOpenPage()
-//                .clickOnButton("Семестр")
-//                .clickOnButton("Сессия");
+//                .clickOnButtonAndCheckAPI("Семестр")
+//                .clickOnButtonAndCheckAPI("Сессия");
         newsPage.clickOnMenuItem("Расписание");
         schedulePage.checkOpenPage()
                 .clickOnButton("Семестр")

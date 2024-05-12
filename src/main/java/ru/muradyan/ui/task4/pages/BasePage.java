@@ -13,7 +13,6 @@ import ru.muradyan.ui.managers.DriverManager;
 import java.time.DayOfWeek;
 import java.time.Duration;
 import java.time.LocalDate;
-import java.util.List;
 
 public class BasePage {
 
@@ -54,12 +53,6 @@ public class BasePage {
         action.moveToElement(element).build().perform();
     }
 
-    protected void moveToNewTab() {
-        for (String tab : driverManager.getDriver().getWindowHandles()) {
-            driverManager.getDriver().switchTo().window(tab);
-        }
-    }
-
     protected String getCurrentDayOfWeek() {
         LocalDate currentDate = LocalDate.now();
         DayOfWeek dayOfWeek = currentDate.getDayOfWeek();
@@ -82,15 +75,6 @@ public class BasePage {
             default:
                 return "Неизвестный день недели";
         }
-    }
-
-    protected String findGroup(List<WebElement> list, String number) {
-        for (WebElement group : list) {
-            if (group.getAttribute("id").equals(number)) {
-                return number;
-            }
-        }
-        return "0";
     }
 
     protected void checkOpenPage(String pageName, WebElement title) {

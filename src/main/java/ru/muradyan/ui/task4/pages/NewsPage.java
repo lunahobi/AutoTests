@@ -48,6 +48,7 @@ public class NewsPage extends BasePage{
                 Assert.fail("Новость '" + title.getText() +  "' не содержит '" + word + "'");
             }
         }
+        logger.info("Поиск слова '" + word + "'");
         return this;
     }
 
