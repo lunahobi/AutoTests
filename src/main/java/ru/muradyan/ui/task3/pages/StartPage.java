@@ -44,8 +44,9 @@ public class StartPage extends BasePage{
     @Step("Навести на категорию '{category}'")
     public StartPage moveToCategory(String category) {
         for (WebElement element: categoryList) {
-            if (waitUntilElementToBeVisible(element.findElement(By.xpath("./span"))).getText().equals(category)) {
-                moveToElement(element);
+            waitUntilElementToBeVisible(element);
+            moveToElement(element);
+            if (element.findElement(By.xpath("./span")).getText().equals(category)) {
                 logger.info("Навести на категорию '" + category + "'");
                 return this;
             }

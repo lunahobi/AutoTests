@@ -22,6 +22,9 @@ public class LaptopPage extends BasePage{
     @FindBy(xpath = "//div[@data-filter-value-id='resale_resale']//label")
     private WebElement resaleFilter;
 
+    @FindBy(xpath = "//h2[text()='Популярные предложения']")
+    private WebElement titleResale;
+
     @Step("Проверка открытия страницы 'Ноутбуки'")
     public LaptopPage checkOpenPage(){
         Assert.assertEquals("Заголовок отсутствует/не соответствует требуемому",
