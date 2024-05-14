@@ -11,6 +11,8 @@ import java.util.List;
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.lessThan;
 
 public class ReqresTest {
 
@@ -320,6 +322,7 @@ public class ReqresTest {
                 .get("https://reqres.in/api/users?delay=3")
                 .then()
                 .statusCode(200)
+                .time(greaterThan(3000L)).and().time(lessThan(6000L))
                 .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("UserListSchema.json"))
                 .body("page", equalTo(1))
                 .body("per_page", equalTo(6))
