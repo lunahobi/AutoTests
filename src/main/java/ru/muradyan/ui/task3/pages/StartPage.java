@@ -19,7 +19,7 @@ public class StartPage extends BasePage{
     @FindBy(xpath = "//div[@data-baobab-name='catalog']/button")
     private WebElement catalogButton;
 
-    @FindBy(xpath = "//ul[@class='_2GpS3' and @role='tablist']//a")
+    @FindBy(xpath = "//li[@data-zone-name='category-link']/a")
     private List<WebElement> categoryList;
 
     @FindBy(xpath = "//ul[@data-autotest-id]//li//a")

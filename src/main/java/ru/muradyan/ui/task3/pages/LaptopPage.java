@@ -41,8 +41,8 @@ public class LaptopPage extends BasePage{
             moveToElement(product);
 
             String title = product.findElement(By.xpath(".//h3")).getText();
-            String price = product.findElement(By.xpath(".//span[@class='_1ArMm']")).getText();
-            List<WebElement> discountElements = product.findElements(By.xpath(".//span[@class='_2Vt2k']"));
+            String price = product.findElement(By.xpath(".//span[@data-auto='snippet-price-current']/span[1]")).getText();
+            List<WebElement> discountElements = product.findElements(By.xpath(".//div[@data-auto='resale-badge']/span"));
             boolean isDiscount = !discountElements.isEmpty();
 
             logger.info("Название: " + title + ". Цена: " + price + (isDiscount ? ". Уценка." : "."));
@@ -63,7 +63,7 @@ public class LaptopPage extends BasePage{
         for (int i = 0; i < 10 && i < productList.size(); i++) {
             WebElement product = productList.get(i);
             moveToElement(product);
-            List<WebElement> discountElements = product.findElements(By.xpath(".//span[@class='_2Vt2k']"));
+            List<WebElement> discountElements = product.findElements(By.xpath(".//div[@data-auto='resale-badge']/span"));
             boolean isDiscount = !discountElements.isEmpty();
             if (!isDiscount) {
                 Assert.fail("Не у каждого товара присутствует плашка 'Уценка'");
