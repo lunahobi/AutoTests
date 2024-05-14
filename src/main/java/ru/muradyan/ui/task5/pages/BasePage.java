@@ -68,8 +68,7 @@ public class BasePage {
     }
 
     protected String get(String request) {
-        String response =  given()
-                .baseUri("https://reqres.in")
+        String response = given()
                 .when()
                 .get(request)
                 .then()
@@ -82,9 +81,16 @@ public class BasePage {
         return response;
     }
 
+    protected int getStatusCode(String request) {
+        return given()
+                .when()
+                .get(request)
+                .then()
+                .extract().statusCode();
+    }
+
     protected String post(String request, String requestBody) {
         return given()
-                .baseUri("https://reqres.in")
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
@@ -93,18 +99,34 @@ public class BasePage {
                 .extract().response().asPrettyString();
     }
 
+    protected int postStatusCode(String request, String requestBody) {
+        return given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+                .when()
+                .post(request)
+                .then()
+                .extract().statusCode();
+    }
+
     protected String delete(String request) {
         return given()
-                .baseUri("https://reqres.in")
                 .when()
                 .delete(request)
                 .then()
                 .extract().response().asPrettyString();
     }
 
+    protected int deleteStatusCode(String request) {
+        return given()
+                .when()
+                .delete(request)
+                .then()
+                .extract().statusCode();
+    }
+
     protected String put(String request, String requestBody) {
         return given()
-                .baseUri("https://reqres.in")
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
@@ -113,15 +135,34 @@ public class BasePage {
                 .extract().response().asPrettyString();
     }
 
+    protected int putStatusCode(String request, String requestBody) {
+        return given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+                .when()
+                .put(request)
+                .then()
+                .extract().statusCode();
+    }
+
     protected String patch(String request, String requestBody) {
         return given()
-                .baseUri("https://reqres.in")
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
                 .patch(request)
                 .then()
                 .extract().response().asPrettyString();
+    }
+
+    protected int pathStatusCode(String request, String requestBody) {
+        return given()
+                .contentType(ContentType.JSON)
+                .body(requestBody)
+                .when()
+                .patch(request)
+                .then()
+                .extract().statusCode();
     }
 
     protected void compareResponses(String expectedResponse, String actualResponse) {
@@ -147,6 +188,12 @@ public class BasePage {
         } catch (Exception e) {
             Assert.fail("Произошла ошибка при сравнении ответов: " + e.getMessage());
         }
+    }
+
+    public boolean verifyUrl(String expectedUrl) {
+        String currentUrl = (String) ((JavascriptExecutor) driverManager.getDriver()).executeScript("return window.location.href");
+        System.out.println(currentUrl);
+        return currentUrl.equals(expectedUrl);
     }
 
 }

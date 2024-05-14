@@ -2,10 +2,10 @@
   "$schema": "https://json-schema.org/draft-03/schema#",
   "type": "object",
   "properties": {
-    "page" : {
-      "type" : "number"
+    "page": {
+      "type": "number"
     },
-    "total":{
+    "total": {
       "type": "number"
     },
     "total_pages": {
@@ -31,7 +31,8 @@
           "pantone_value": {
             "type": "string"
           }
-        }
+        },
+        "required": ["id", "name", "year", "color", "pantone_value"]
       }
     },
     "support": {
@@ -43,7 +44,9 @@
         "text": {
           "type": "string"
         }
-      }
+      },
+      "required": ["url", "text"]
     }
-  }
+  },
+  "required": ["page", "total", "total_pages", "data", "support"]
 }

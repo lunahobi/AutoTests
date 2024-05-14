@@ -31,7 +31,8 @@
           "avatar": {
             "type": "string"
           }
-        }
+        },
+        "required": ["id", "email", "first_name", "last_name", "avatar"]
       }
     },
     "support": {
@@ -43,7 +44,9 @@
         "text": {
           "type": "string"
         }
-      }
+      },
+      "required": ["url", "text"]
     }
-  }
+  },
+  "required": ["page", "total", "total_pages", "data", "support"]
 }

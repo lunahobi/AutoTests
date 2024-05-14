@@ -14,5 +14,11 @@
     "createdAt": {
       "type": "string"
     }
-  }
+  },
+  "required": [
+    "name",
+    "job",
+    "id",
+    "createdAt"
+  ]
 }

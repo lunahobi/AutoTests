@@ -20,18 +20,30 @@
         "pantone_value": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "id",
+        "name",
+        "year",
+        "color",
+        "pantone_value"
+      ]
+    },
+    "support": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "url",
+        "text"
+      ]
     }
   },
-  "support": {
-    "type": "object",
-    "properties": {
-      "url": {
-        "type": "string"
-      },
-      "text": {
-        "type": "string"
-      }
-    }
-  }
+  "required": ["data", "support"]
 }

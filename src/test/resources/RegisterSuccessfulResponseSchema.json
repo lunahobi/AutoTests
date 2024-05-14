@@ -8,5 +8,6 @@
     "token": {
       "type": "string"
     }
-  }
+  },
+  "required": ["id", "token"]
 }

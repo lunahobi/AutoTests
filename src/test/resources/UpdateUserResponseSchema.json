@@ -8,11 +8,9 @@
     "job": {
       "type": "string"
     },
-    "id": {
-      "type": "string"
-    },
     "updatedAt": {
       "type": "string"
     }
-  }
+  },
+  "required": ["name", "job", "updatedAt"]
 }

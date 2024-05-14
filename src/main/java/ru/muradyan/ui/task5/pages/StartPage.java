@@ -28,6 +28,12 @@ public class StartPage extends BasePage {
     @FindBy(xpath = "//pre[@data-key='output-request']")
     private WebElement outputRequest;
 
+    @FindBy(xpath = "//span[@class='url']")
+    private WebElement urlRequest;
+
+    @FindBy(xpath = "//span[contains(@class,'response-code')]")
+    private WebElement responseCode;
+
     @Step("Проверка открытия страницы авторизации")
     public StartPage checkOpenPage(){
         checkOpenPage("Test your front-end against a real API", title);
@@ -47,23 +53,30 @@ public class StartPage extends BasePage {
                 switch (httpMethod){
                     case ("get"):
                         Assert.assertEquals("Результат не совпал с результатом API", get(request.getAttribute("href")), outputResponse.getText());
+                        Assert.assertEquals("Статус кода не совпал", getStatusCode(request.getAttribute("href")), Integer.parseInt(responseCode.getText()));
                         break;
                     case ("post"):
                         compareResponses(post(request.getAttribute("href"), outputRequest.getText()), outputResponse.getText());
+                        Assert.assertEquals("Статус кода не совпал", postStatusCode(request.getAttribute("href"), outputRequest.getText()), Integer.parseInt(responseCode.getText()));
                         break;
                     case ("delete"):
                         Assert.assertEquals("Результат не совпал с результатом API", delete(request.getAttribute("href")), outputResponse.getText());
+                        Assert.assertEquals("Статус кода не совпал", deleteStatusCode(request.getAttribute("href")), Integer.parseInt(responseCode.getText()));
                         break;
                     case ("put"):
                         compareResponses(put(request.getAttribute("href"), outputRequest.getText()), outputResponse.getText());
+                        Assert.assertEquals("Статус кода не совпал", putStatusCode(request.getAttribute("href"), outputRequest.getText()), Integer.parseInt(responseCode.getText()));
                         break;
                     case ("patch"):
                         compareResponses(patch(request.getAttribute("href"), outputRequest.getText()), outputResponse.getText());
+                        Assert.assertEquals("Статус кода не совпал", pathStatusCode(request.getAttribute("href"), outputRequest.getText()), Integer.parseInt(responseCode.getText()));
                         break;
                     default:
                         Assert.fail("Произошла ошибка");
                         break;
                 }
+                Assert.assertEquals("Ссылка не совпадает",request.getAttribute("href"), "https://reqres.in" + urlRequest.getText());
+
                 logger.info("Проверка ответа '" + nameButton + "' на соответствии с API");
                 return this;
             }
