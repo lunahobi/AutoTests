@@ -15,7 +15,7 @@ public class MospolytechPersonalAccountTest extends BaseTest {
 
     @Test
     @DisplayName("Проверка настройки меню")
-    public void test(){
+    public void test1(){
         startPage.checkOpenPage()
                 .logInStudent()
                 .checkOpenPage()
@@ -56,8 +56,8 @@ public class MospolytechPersonalAccountTest extends BaseTest {
 //                .clickOnMenuItem("Расписание");
 //        SchedulePage schedulePage = new SchedulePage();
 //        schedulePage.checkOpenPage()
-//                .clickOnButtonAndCheckAPI("Семестр")
-//                .clickOnButtonAndCheckAPI("Сессия");
+//                .clickOnButton("Семестр")
+//                .clickOnButton("Сессия");
         newsPage.clickOnMenuItem("Расписание");
         schedulePage.checkOpenPage()
                 .clickOnButton("Семестр")

@@ -36,7 +36,6 @@ public class StartPage extends BasePage {
 
     @Step("Авторизоваться под аккаунтом студента")
     public HomePage logInStudent() {
-        System.out.println("logInStudent() method called");
         waitUntilElementToBeClickable(loginInput).click();
         loginInput.sendKeys(props.getProperty(LOGIN));
 

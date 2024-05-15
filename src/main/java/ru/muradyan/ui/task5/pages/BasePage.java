@@ -190,11 +190,5 @@ public class BasePage {
         }
     }
 
-    public boolean verifyUrl(String expectedUrl) {
-        String currentUrl = (String) ((JavascriptExecutor) driverManager.getDriver()).executeScript("return window.location.href");
-        System.out.println(currentUrl);
-        return currentUrl.equals(expectedUrl);
-    }
-
 }
 

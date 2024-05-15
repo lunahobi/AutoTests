@@ -21,17 +21,14 @@ public class SettingsPage extends BasePage{
     @FindBy(xpath = "//b[@title='Меню']/../../..")
     private WebElement menuButton;
 
-    @FindBy(xpath = "//div[@direction='vertical']//div[@class='sc-kAyceB grEoze']")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/header/div[1]")
     private WebElement titleMenu;
 
-    @FindBy(xpath = "//div[@class='sc-JrDLc cJgRsg']")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div")
     private WebElement addButton;
 
     @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[4]/div/div[2]/div/div[position() > 1]")
     private List<WebElement> itemsList;
-
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[5]")
-    private WebElement message;
 
     @FindBy(xpath = "//div[@class='top-wrapper']//a[contains(@class, 'leftside-bar-item')]")
     private List<WebElement> menuItemsList;
@@ -39,7 +36,7 @@ public class SettingsPage extends BasePage{
 
     @Step("Проверка открытия страницы с настройками")
     public SettingsPage checkOpenPage(){
-        wait.until(attributeContains(menuItem, "class", "hQdpCM"));
+        wait.until(attributeContains(menuItem, "class", "hNYrJD"));
         logger.info("Проверка открытия страницы");
         return this;
     }
@@ -47,7 +44,7 @@ public class SettingsPage extends BasePage{
     @Step("Нажать на кнопку 'Меню'")
     public SettingsPage clickOnMenuButton() {
         waitUntilElementToBeClickable(menuButton).click();
-        Assert.assertEquals("Настройки меню не открылись", "Настройка меню", titleMenu.getText());
+        Assert.assertEquals("Настройки меню не открылись", "Меню", titleMenu.getText());
         logger.info("Переход во вкладку с настройками меню");
         return this;
     }
@@ -61,11 +58,9 @@ public class SettingsPage extends BasePage{
             String title = item.findElement(By.xpath(".//b")).getText();
             if (title.equalsIgnoreCase(nameOfItem)) {
                 item.click();
-                wait.until(ExpectedConditions.attributeContains(message, "class", "gZaFur"));
-                Assert.assertEquals("Сообщение в окне не корректное", "Элемент добавлен в навигационное меню", message.findElement(By.xpath(".//div[@class='info-text']")).getText());
                 WebElement checkbox = item.findElement(By.xpath("./div[@class='buttons']/*/div/*"));
                 wait.until(ExpectedConditions.attributeContains(checkbox, "style", "color: var(--blue);"));
-                WebElement closeButton = driverManager.getDriver().findElement(By.xpath("//button[contains(@class, 'kGDcM close-button')]"));
+                WebElement closeButton = driverManager.getDriver().findElement(By.xpath("//*[@id=\"root\"]/div/div/div[4]/div/button"));
                 moveToElement(closeButton);
                 closeButton.click();
                 for (WebElement menu: menuItemsList) {

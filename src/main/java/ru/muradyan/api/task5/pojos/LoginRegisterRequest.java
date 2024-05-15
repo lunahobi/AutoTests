@@ -3,11 +3,11 @@ package ru.muradyan.api.task5.pojos;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.checkerframework.checker.units.qual.N;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor @N
+@AllArgsConstructor @NoArgsConstructor
 public class LoginRegisterRequest {
     private String email;
     private String password;

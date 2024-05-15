@@ -22,7 +22,7 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[@class='top-wrapper']//a[contains(@class, 'leftside-bar-item')]")
     private List<WebElement> menuItemsList;
 
-    @FindBy(xpath = "//button[@class='sc-aXZVg dVHnIi']")
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/div[1]/div/div/div[2]/div[3]/div/div[3]/div[1]/h4/div/a/button")
     private WebElement moreButton;
 
     @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/div[1]/div/div/div[2]/div[2]/a")
