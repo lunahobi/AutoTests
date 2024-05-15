@@ -25,7 +25,7 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//div[text()='Последние новости']/a")
     private WebElement moreButton;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/div[1]/div/div/div[2]/div[2]/a")
+    @FindBy(xpath = "//div[@height='fit-content' and @width='100%']/parent::div/div[2]/a")
     private List<WebElement> horizontalMenuItemList;
 
     @Step("Проверка открытия главной страницы")
