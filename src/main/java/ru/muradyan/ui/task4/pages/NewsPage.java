@@ -15,13 +15,13 @@ public class NewsPage extends BasePage{
     @FindBy(xpath = "//div[@class='top-wrapper']//a[contains(@class, 'leftside-bar-item')]")
     private List<WebElement> menuItemsList;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/header/div[1]")
+    @FindBy(xpath = "//header/div[1]")
     private WebElement title;
 
     @FindBy(id = "Поиск новостей")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/div[1]/div/div/div/div/div/div[position() > 1]/div[2]/div[1]/div/div[2]/div")
+    @FindBy(xpath = "//div[@class='content']/div/div/div/div[position()>1]/div[2]/div/div/div[2]/div")
     private List<WebElement> newsTitleList;
 
 

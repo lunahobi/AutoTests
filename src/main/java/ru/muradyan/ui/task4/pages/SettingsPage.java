@@ -10,8 +10,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.attributeContains;
-
 public class SettingsPage extends BasePage{
 
     private static final Logger logger = Logger.getLogger(SettingsPage.class);
@@ -21,13 +19,13 @@ public class SettingsPage extends BasePage{
     @FindBy(xpath = "//b[@title='Меню']/../../..")
     private WebElement menuButton;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/header/div[1]")
+    @FindBy(xpath = "//header/div[1]")
     private WebElement titleMenu;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/div[1]/div/div/div/div[2]/div[2]/div/div[2]/div")
+    @FindBy(xpath = "//div[contains(@style, 'margin-left: 8px;')]/parent::div/div[2]/div")
     private WebElement addButton;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[4]/div/div[2]/div/div[position() > 1]")
+    @FindBy(xpath = "//button[contains(@class, 'close-button') and @width]/parent::div/div[2]/div/div[position()>1]")
     private List<WebElement> itemsList;
 
     @FindBy(xpath = "//div[@class='top-wrapper']//a[contains(@class, 'leftside-bar-item')]")
@@ -36,7 +34,7 @@ public class SettingsPage extends BasePage{
 
     @Step("Проверка открытия страницы с настройками")
     public SettingsPage checkOpenPage(){
-        wait.until(attributeContains(menuItem, "class", "hNYrJD"));
+        Assert.assertEquals("Не открылась страница", "rgba(64, 197, 197, 1)", menuItem.getCssValue("color"));
         logger.info("Проверка открытия страницы");
         return this;
     }
@@ -60,7 +58,7 @@ public class SettingsPage extends BasePage{
                 item.click();
                 WebElement checkbox = item.findElement(By.xpath("./div[@class='buttons']/*/div/*"));
                 wait.until(ExpectedConditions.attributeContains(checkbox, "style", "color: var(--blue);"));
-                WebElement closeButton = driverManager.getDriver().findElement(By.xpath("//*[@id=\"root\"]/div/div/div[4]/div/button"));
+                WebElement closeButton = driverManager.getDriver().findElement(By.xpath("//button[contains(@class, 'close-button') and @width]"));
                 moveToElement(closeButton);
                 closeButton.click();
                 for (WebElement menu: menuItemsList) {

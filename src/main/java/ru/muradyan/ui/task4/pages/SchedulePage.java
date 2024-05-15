@@ -11,13 +11,13 @@ import java.util.List;
 public class SchedulePage extends BasePage{
 
     private static final Logger logger = Logger.getLogger(SchedulePage.class);
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/header/div[1]")
+    @FindBy(xpath = "//header/div[1]")
     private WebElement title;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/div[1]/div/div/div/div/div[3]/div[1]/div[3]/a")
+    @FindBy(xpath = "//div[@class='content']/div/div/div[3]/div[1]/div[3]//a")
     private List<WebElement> buttonsList;
 
-    @FindBy(xpath = "//*[@id=\"root\"]/div/div/div[3]/div[1]/div/div/div/div/div[3]/div[2]/div[1]/div//span")
+    @FindBy(xpath = "//div[@class='content']/div/div/div[3]/div[2]/div[1]/div//span[1]")
     private List<WebElement> days;
 
     @Step("Проверка открытия страницы 'Расписание'")
